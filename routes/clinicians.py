@@ -90,61 +90,75 @@ def promote():
     from app import mysql
     
     data = request.get_json()
-    clinician_id = data.get('id')
+    username = data['username']
+    password = data['password']
 
-    if not clinician_id:
-        return jsonify({"error": "Clinician ID is required."}), 400
-
-    # Checking is Clinician is already a Senior.
+    # Fetching Data for Authentication and Validation.
     cur = mysql.connection.cursor()
-    cur.execute("SELECT role FROM clinicians WHERE id = %s", (clinician_id,))
-    role = cur.fetchone()
-    if role == "Senior":
-        return jsonify({"message": "Clinician is already a Senior"})
-    
-    # Updating Role.
-    cur.execute("UPDATE clinicians SET role = 'Senior' WHERE id = %s", (clinician_id,))
+    cur.execute("SELECT * FROM clinicians WHERE username = %s", (username,))
     mysql.connection.commit()
+    user_data = cur.fetchone()
 
-    # Fetching and Confirming Changes.
-    cur.execute("SELECT role FROM clinicians WHERE id = %s", (clinician_id,))
-    role = cur.fetchone()
+    if user_data[3] and check_password(user_data[3].encode('utf-8'), password):
+        # Checking is Clinician is already a Senior.
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT role FROM clinicians WHERE username = %s", (user_data[2],))
+        role = cur.fetchone()
+        if role[0] == "Senior":
+            return jsonify({"message": "Clinician is already a Senior"})
+        
+        # Updating Role.
+        cur.execute("UPDATE clinicians SET role = 'Senior' WHERE username = %s", (user_data[2],))
+        mysql.connection.commit()
 
-    # Update Successful Message.
-    cur.close()
-    return jsonify({"message": "Clinician promoted.",
-                    "new_role": role[0]})
+        # Fetching and Confirming Changes.
+        cur.execute("SELECT role FROM clinicians WHERE username = %s", (user_data[2],))
+        role = cur.fetchone()
+
+        # Update Successful Message.
+        cur.close()
+        return jsonify({"message": "Clinician promoted.",
+                        "new_role": role[0]})
+    
+    return jsonify({"message": "Invalid Credentials!"}), 401
 
 @clinician_bp.route('/demote', methods=['PATCH'])
 def demote():
     from app import mysql
 
     data = request.get_json()
-    clinician_id = data.get('id')
+    username = data['username']
+    password = data['password']
 
-    if not clinician_id:
-        return jsonify({"error": "Clinician ID is required."}), 400
-    
-    # Checking is Clinician is already a Senior.
+    # Fetching Data for Authentication and Validation.
     cur = mysql.connection.cursor()
-    cur.execute("SELECT role FROM clinicians WHERE id = %s", (clinician_id,))
-    role = cur.fetchone()
-    if role == "Junior":
-        return jsonify({"message": "Clinician is already a Junior"})
-    
-    
-    # Updating Role.
-    cur.execute("UPDATE clinicians SET role = 'Junior' WHERE id = %s", (clinician_id,))
+    cur.execute("SELECT * FROM clinicians WHERE username = %s", (username,))
     mysql.connection.commit()
+    user_data = cur.fetchone()
 
-    # Fetching and Confirming Changes.
-    cur.execute("SELECT role FROM clinicians WHERE id = %s", (clinician_id,))
-    role = cur.fetchone()
-    cur.close()
+    if user_data[3] and check_password(user_data[3].encode('utf-8'), password):
+        # Checking is Clinician is already a Senior.
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT role FROM clinicians WHERE username = %s", (user_data[2],))
+        role = cur.fetchone()
+        if role[0] == "Junior":
+            return jsonify({"message": "Clinician is already a Junior"})
+        
+        
+        # Updating Role.
+        cur.execute("UPDATE clinicians SET role = 'Junior' WHERE username = %s", (user_data[2],))
+        mysql.connection.commit()
+
+        # Fetching and Confirming Changes.
+        cur.execute("SELECT role FROM clinicians WHERE username = %s", (user_data[2],))
+        role = cur.fetchone()
+        cur.close()
+        
+        # Update Successful Message.
+        return jsonify({"message": "Clinician demoted to Junior.",
+                        "new_role": role[0]})
     
-    # Update Successful Message.
-    return jsonify({"message": "Clinician demoted to Junior.",
-                    "new_role": role[0]})
+    return jsonify({"message": "Invalid Credentials!"}), 401
 
 
 
