@@ -6,8 +6,10 @@ This is where all the routes would be indexed. This enables easy scalability and
 def get_blueprints():
     from .clinicians import clinician_bp
     from .cases import case_bp
+    from .ping import ping_bp
 
     return [
         (clinician_bp, '/clinicians'),
-        (case_bp, '/cases')
+        (case_bp, '/cases'),
+        (ping_bp, '/ping')
     ]
