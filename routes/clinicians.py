@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from utils.security import hash_password, check_password
+from utils.security import hash_password, check_password, generate_token, verify_token
 
 clinician_bp = Blueprint('clinicians', __name__)
 
@@ -41,18 +41,17 @@ def login():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM clinicians WHERE username = %s", (username,))
     user_data = cur.fetchone()
-    # print(f"Fetched Password: {user[0]}")
+    # print(f"Fetched Password: {user_data[4]}")
     cur.close()
 
-    user_pwd = user_data[3]
-    role = user_data[4]
-
-    if user_pwd and check_password(user_pwd.encode('utf-8'), password):
+    if user_data[3] and check_password(user_data[3].encode('utf-8'), password):
+        token = generate_token(user_data[0])
         return jsonify({"message": "Login successful!",
                         "id": user_data[0],
                         "name": user_data[1],
                         "username": user_data[2],
-                        "role": user_data[4]})
+                        "role": user_data[4],
+                        "token": token})
     else:
         return jsonify({"error": "Invalid credentials."}), 401
 
