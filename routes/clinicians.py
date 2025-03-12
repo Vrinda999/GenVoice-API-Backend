@@ -20,7 +20,7 @@ def register():
     # Setting the Default Value as Junior
     role = 'Junior'
     
-    cur = mysql.connection.cursor(dictionary=True)
+    cur = mysql.connection.cursor()
 
     cur.execute("ALTER TABLE clinicians AUTO_INCREMENT=1")
 
