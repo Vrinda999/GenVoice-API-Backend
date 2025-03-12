@@ -2,7 +2,7 @@ bcrypt
 Flask
 flask-mysql
 flask_mysqldb
-flask_cors-5.0.1
+flask_cors
 PyJWT
 dotenv
 os
