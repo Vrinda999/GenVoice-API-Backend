@@ -5,7 +5,7 @@ CREATE Database GenVoice;
 -- Table Creation
 CREATE TABLE clinicians (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
+    name VARCHAR(100) NOT NULL,
     Username VARCHAR(100) UNIQUE NOT NULL,
     Password VARCHAR(255) NOT NULL,
     Role ENUM('Senior', 'Junior') NOT NULL DEFAULT 'Junior'
