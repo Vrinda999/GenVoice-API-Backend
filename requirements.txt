@@ -5,4 +5,3 @@ flask_mysqldb
 flask_cors
 PyJWT
 dotenv
-os
