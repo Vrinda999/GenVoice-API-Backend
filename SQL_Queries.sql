@@ -61,3 +61,10 @@ VALUES(
         "A 16-year-old high school student who is feeling overwhelmed by academic pressure and is struggling to balance schoolwork, extracurriculars, and personal time."
     );
 --------------------------------------------------------------------------------------------------
+-- Valid Tokens Table to manage Auth Tokens of Logged Out Clinicians
+CREATE TABLE valid_tokens (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    clinician_id INTEGER NOT NULL,
+    token TEXT NOT NULL,
+    created_on DATETIME NOT NULL
+);

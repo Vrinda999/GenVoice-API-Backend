@@ -1,5 +1,7 @@
-from flask import Blueprint, request, jsonify
-from utils.security import hash_password, check_password, generate_token, verify_token
+from flask import Blueprint, request, jsonify, session
+from utils.security import hash_password, check_password, generate_token
+import datetime
+from decorators.auth import login_required
 
 clinician_bp = Blueprint('clinicians', __name__)
 
@@ -40,12 +42,18 @@ def login():
 
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM clinicians WHERE username = %s", (username,))
+    mysql.connection.commit()
     user_data = cur.fetchone()
     # print(f"Fetched Password: {user_data[4]}")
-    cur.close()
 
     if user_data[3] and check_password(user_data[3].encode('utf-8'), password):
         token = generate_token(user_data[0])
+        
+        cur.execute("INSERT INTO valid_tokens (clinician_id, token, created_on) VALUES (%s, %s, %s)", (user_data[0], token, datetime.datetime.now()))
+
+        mysql.connection.commit()
+        cur.close()
+
         return jsonify({"message": "Login successful!",
                         "id": user_data[0],
                         "name": user_data[1],
@@ -97,3 +105,18 @@ def demote():
     cur.close()
     return jsonify({"message": "Clinician demoted to Junior.",
                     "new_role": role[0]})
+
+
+
+@clinician_bp.route('/logout', methods=['POST'])
+@login_required
+def logout():
+    from app import mysql
+    token = request.headers.get('Authorization')
+
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM valid_tokens WHERE token = %s", (token,))
+    mysql.connection.commit()
+    cur.close()
+
+    return jsonify({"message": "Clinician logged out successfully!"}), 200

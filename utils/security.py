@@ -20,7 +20,7 @@ def check_password(hashed_password, plain_password):
 def generate_token(clinician_id):
     payload = {
         'clinician_id': clinician_id,
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)  # Token valid for 1 hour
+        'exp': datetime.datetime.now() + datetime.timedelta(hours=1)  # Token valid for 1 hour
     }
     return jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
