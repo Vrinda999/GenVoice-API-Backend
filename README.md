@@ -17,9 +17,9 @@ pip install -r requirements.txt
 python app.py
 ```
 2. Import the [SQL Database](/extras/genvoice.sql) to XAMPP Server.
-3. Postman Collection
-Open Postman API --> import the [collection](/extras/genvoice.postman_collection.json).
-Logging In generates an ***Authorization Token***, which is needed by some other requests to function.
+3. Postman Collection: 
+   Open Postman --> import the [collection](/extras/genvoice.postman_collection.json).
+   Logging In generates an ***Authorization Token***, which is needed by some other requests to function.
 ![Clinician Login API Testing in Postman](/extras/clinician_login_postman.png)
 
 The following Requests require the Authorization Token to be pasted in the headers section.
