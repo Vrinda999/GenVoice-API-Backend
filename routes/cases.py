@@ -1,8 +1,10 @@
 from flask import Blueprint, request, jsonify
+from decorators.auth import login_required
 
 case_bp = Blueprint('cases', __name__)
 
 @case_bp.route('/Add', methods=['POST'])
+@login_required
 def add_case():
     from app import mysql
 
@@ -23,6 +25,7 @@ def add_case():
                     "id": user_data[0]})
 
 @case_bp.route('/Fetch', methods=['GET'])
+@login_required
 def get_cases():
     from app import mysql
     
@@ -30,5 +33,8 @@ def get_cases():
     cur.execute("SELECT * FROM cases")
     cases = cur.fetchall()
     cur.close()
+
+    if not cases:
+        return jsonify({"message": "No cases found."}), 404
 
     return jsonify(cases)
