@@ -1,5 +1,15 @@
 # GenVoice API Backend
 
+## Table of Contents
+1. [How to Run](#how-to-run)
+2. [Salient Features](#salient-features)
+3. [Directory Structure](#directory-structure)
+4. [Components](#components)
+    4.1. [app.py](#apppy)
+    4.2. [Routes](#routes)
+    4.3. [Utils/security](#security)
+5. [Extras](#extras)
+
 ## How to Run
 1. Running the Flask Server.
 ```
@@ -20,7 +30,46 @@ The following Requests require the Authorization Token to be pasted in the heade
 
 ---
 
-## [app.py](app.py)
+## Salient Features
+- [x] Modular
+- [x] Scalable
+- [x] Inline Comments for Easy Comprehension
+- [x] Extensive Documentation
+
+---
+
+## Directory Structure
+```
+GenVoice
+|
+|-- /decorators
+|    |-- auth.py
+|
+|-- /extras
+|    |-- database.sql
+|    |-- postman-collection.json
+|    |-- screenshots
+|    |-- sql_queries.sql
+|
+|-- /routes
+|    |-- __init__.py
+|    |-- cases.py
+|    |-- clinicians.py
+|
+|-- /utils
+|    |-- security.py
+|
+|-- .gitignore
+|-- app.py
+|-- config.py
+|-- README.md
+|-- requirements.txt
+```
+
+---
+
+## Components
+### [app.py](app.py)
 This is the starting point of the API Program. This program ensures systematic and consolidates execution of the available processes as required.
 
 This is also where the connection for MySQL has been intialised. So all processes and functions requiring a connection with the database import it from this directory using the following code:
@@ -29,18 +78,18 @@ from app import mysql
 ```
 This avoids multiple instances of the Database being accessed.
 
-## Routes
-### [\_\_init__.py](/routes/__init__.py)
+### Routes
+#### [\_\_init__.py](/routes/__init__.py)
 This is responsible for consolidating all the available routes.
 This helps **Modularise** the code and keep it clean.
 It also makes the code more **scalable**.
 
-### [cases](./routes/cases.py)
+#### [cases](./routes/cases.py)
 This is responsible for Adding New Cases to the database, and fetching all of them whenever required.
 
 It ensures that Case data is not freely accessible by anyone, and confirms that a Clinician is logged in using the `@login_required` [decorator](/decorators/auth.py). 
 
-### [clinicians](./routes/clinicians.py)
+#### [clinicians](./routes/clinicians.py)
 This is responsible for **Registering** New Clinicians, and **Logging In** to already registered ones.
 
 It is also ensured that if data is deleted, then the new auto_increment ID Integer is the one next to the largest available ID in the table.
@@ -51,7 +100,7 @@ cur.execute("ALTER TABLE cases AUTO_INCREMENT=1")
 
 This file also provides the option to ***Promote*** a clinician to Senior Role, or ***Demote*** a clinician to Junior Role.
 
-## [Security](./utils/security.py)
+### [Security](./utils/security.py)
 This is a Crucial part of the program.
 It contains functions which are responsible for ***Hashing** the password* before storing it in the database.
 
@@ -72,13 +121,13 @@ This generates a secure 32-byte hex token, which has been stored in a private `.
 > [!IMPORTANT]
 > Sensitive information like SECRET_KEY is stored in an environment variable file, which is added to .gitignore. This ensures that it is not shared or visible publicly. 
 
-
+---
 
 ## Extras
-[x] [requirements.txt](/requirements.txt): Required Packages.
-[x] [SQL_Queries.sql](/SQL_Queries.sql): This contains all the SQL Queries used to create the database, tables and fill dummy data into it.
-[x] [hashed_pwd.py](extras/hashed_pwd.py): This is a file which uses the security functions to hash and verify the  passwords in the dummy data. It justifies what has been inserted in the database instead of the provided passwords.
-[x] [config.py](/config.py): Configurations for MySQL Connection.
-[x] [Logout](/routes/clinicians.py): added a Logout and Token Expire function.
-[x] [Postman Collection](/extras/genvoice.postman_collection.json).
-[x] [MySQL Database](/extras/genvoice.sql).
+- [requirements.txt](/requirements.txt): Required Packages.
+- [SQL_Queries.sql](/SQL_Queries.sql): This contains all the SQL Queries used to create the database, tables and fill dummy data into it.
+- [hashed_pwd.py](extras/hashed_pwd.py): This is a file which uses the security functions to hash and verify the  passwords in the dummy data. It justifies what has been inserted in the database instead of the provided passwords.
+- [config.py](/config.py): Configurations for MySQL Connection.
+- [Logout](/routes/clinicians.py): added a Logout and Token Expire function.
+- [Postman Collection](/extras/genvoice.postman_collection.json).
+- [MySQL Database](/extras/genvoice.sql).
