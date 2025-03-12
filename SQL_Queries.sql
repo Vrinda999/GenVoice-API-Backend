@@ -17,21 +17,21 @@ VALUES(
         001,
         "Dr. Joel Tan",
         "joel87",
-        "b'$2b$12$3CoiOPfrodj4uJDnZPO13egQTIoeDCCD3qFSU52AZUCPvGGyWijM.'",
+        "$2b$12$d5BDnmCXiIEBotSpdOgQbeU29R7iIe7DpXFeHPuA6pEE/5nqCtAZO",
         "Senior"
     ),
     (
         002,
         "Dr. Huang Shimin",
         "shiminh",
-        "b'$2b$12$/wgBKDmwPT2gCDHBJLJvHODYC3bwJgbhg9Gq4DPSDbAblw6msk3gm'",
+        "$2b$12$9hQ5gy7GBC4oCJlfcqFYBueGlpkwAFBWRZo5f2fMliSqEREXqR.66",
         "Junior"
     ),
     (
         003,
         "Dr. Rishi Agarwal",
         "rishiaw",
-        "b'$2b$12$ec4R9zw4fC7TpzUHX5XnDevZwhKT1kg.36.o53YZR3LSxDGXbQS0S'",
+        "$2b$12$iEpuK6Fh6GrZq.JYL65kvezkGJEnmmxp8lxA5M8/f5T8Ix0iiIF6O",
         "Junior"
     );
 --------------------------------------------------------------------------------------------------
