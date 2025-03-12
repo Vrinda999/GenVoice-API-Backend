@@ -1,12 +1,12 @@
 from functools import wraps
 from flask import request, jsonify
-from utils.security import verify_token
 
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         from app import mysql
         
+        # Checking if a Clinician has Logged In or not by Checking the JWT Token.
         token = request.headers.get('Authorization')
         if not token:
             return jsonify({"error": "Token is missing!"}), 401

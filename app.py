@@ -7,7 +7,7 @@ from routes import get_blueprints
 app = Flask(__name__)
 CORS(app)
 
-# Configuration
+# Configuration for MySQL Connection.
 app.config.from_object('config.Config')
 
 # Initialize MySQL
