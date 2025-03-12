@@ -1,3 +1,5 @@
-bcrypt == 4.3.0
+bcrypt-4.3.0
 Flask
 flask-mysql
+flask_mysqldb
+flask_cors-5.0.1
