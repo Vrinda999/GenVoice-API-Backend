@@ -9,6 +9,7 @@
     4.2. [Routes](#routes)
     4.3. [Utils/security](#security)
 5. [Extras](#extras)
+6. [References](#references)
 
 ## How to Run
 1. Running the Flask Server.
@@ -131,3 +132,13 @@ This generates a secure 32-byte hex token, which has been stored in a private `.
 - [Logout](/routes/clinicians.py): added a Logout and Token Expire function.
 - [Postman Collection](/extras/genvoice.postman_collection.json).
 - [MySQL Database](/extras/genvoice.sql).
+
+---
+
+## References
+- [py-bcrypt](http://www.mindrot.org/projects/py-bcrypt/)
+- JWT
+  - [Basic Usage](https://flask-jwt-extended.readthedocs.io/en/stable/basic_usage.html)
+  - [Easy Tutorial](https://www.geeksforgeeks.org/using-jwt-for-user-authentication-in-flask/)
+- [Flask-MySQL](https://flask-mysql.readthedocs.io/en/stable/)
+- [Flask Blueprints](https://flask.palletsprojects.com/en/stable/blueprints/)
