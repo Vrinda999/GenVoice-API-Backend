@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "d400c36c-40b9-4a1f-859f-7e76512d7889",
+		"name": "genvoice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36626541"
+	},
+	"item": [
+		{
+			"name": "Clinicians",
+			"item": [
+				{
+					"name": "clinician register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dr. Jane Doe\",\r\n    \"username\": \"jane992\",\r\n    \"password\": \"pwjane99\",\r\n    \"role\": \"Senior\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/clinicians/register"
+					},
+					"response": []
+				},
+				{
+					"name": "clinician login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jane99\",\r\n    \"password\": \"pwjane99\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/clinicians/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Clinician Promote",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/clinicians/promote"
+					},
+					"response": []
+				},
+				{
+					"name": "Clinician Demote",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/clinicians/demote"
+					},
+					"response": []
+				},
+				{
+					"name": "Clinician Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjQsImV4cCI6MTc0MTc5OTU0MX0.CnKII5tlX51MK7NSvFxIYzHamFspb8hobIHopv3pSVs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/clinicians/logout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cases",
+			"item": [
+				{
+					"name": "fetch all cases",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjQsImV4cCI6MTc0MTgwMjg1MH0.OCPOz-5bJOPkqMqTHA9JElTwJoRbit6II9TR2CMOeNU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/cases/Fetch"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Case",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTc2ODc1Mn0.2Ac1etY_l8aRhq8zIcX8JVssHd29lMHllT--mvmZ8nE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Wei WuXian\",\r\n    \"description\": \"He is a 21 year old universirty student and has General Anxiety Disorder. His filial obligations and unprompted disdain from people worsens his moods, and paves way for an anxiety attack. He finds it easy to calm down when listening to traditional Guqing music.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:5000/cases/Add"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
