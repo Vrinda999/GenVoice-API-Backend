@@ -12,13 +12,7 @@
 6. [References](#references)
 
 ## How to Run
-1. Running the Flask Server.
-```
-pip install -r requirements.txt
-python app.py
-```
-2. Import the [SQL Database](/extras/genvoice.sql) to XAMPP Server.
-3. Postman Collection: 
+Postman Collection: 
    Open Postman --> import the [collection](/extras/genvoice.postman_collection.json).
    Logging In generates an ***Authorization Token***, which is needed by some other requests to function.
 ![Clinician Login API Testing in Postman](/extras/clinician_login_postman.png)
