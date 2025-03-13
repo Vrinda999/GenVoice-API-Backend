@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Dr. Jane Doe\",\r\n    \"username\": \"jane992\",\r\n    \"password\": \"pwjane99\",\r\n    \"role\": \"Senior\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Dr. Jane Doe\",\r\n    \"username\": \"jane99\",\r\n    \"password\": \"pwjane99\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -34,7 +34,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"jane99\",\r\n    \"password\": \"pwjane99\"\r\n}",
+							"raw": "{\r\n    \"username\": \"joel87\",\r\n    \"password\": \"pwjoel87\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -70,7 +70,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"jane99\",\r\n    \"password\": \"haha\"\r\n}",
+							"raw": "{\r\n    \"username\": \"jane99\",\r\n    \"password\": \"pwjane99\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,7 +88,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjQsImV4cCI6MTc0MTc5OTU0MX0.CnKII5tlX51MK7NSvFxIYzHamFspb8hobIHopv3pSVs",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg5NDYxMH0.OlvIymOPs0E_kJklkgCGlDxN-e5a0Jy2dh5QEFrT308",
 								"type": "text"
 							}
 						],
@@ -120,7 +120,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjQsImV4cCI6MTc0MTgwMjg1MH0.OCPOz-5bJOPkqMqTHA9JElTwJoRbit6II9TR2CMOeNU",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg5NDYxMH0.OlvIymOPs0E_kJklkgCGlDxN-e5a0Jy2dh5QEFrT308",
 								"type": "text"
 							}
 						],
@@ -144,7 +144,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTc2ODc1Mn0.2Ac1etY_l8aRhq8zIcX8JVssHd29lMHllT--mvmZ8nE",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg5NDYxMH0.OlvIymOPs0E_kJklkgCGlDxN-e5a0Jy2dh5QEFrT308",
 								"type": "text"
 							}
 						],
@@ -162,6 +162,15 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:5000/ping"
+			},
+			"response": []
 		}
 	]
 }

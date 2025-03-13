@@ -98,6 +98,8 @@ def promote():
     cur.execute("SELECT * FROM clinicians WHERE username = %s", (username,))
     mysql.connection.commit()
     user_data = cur.fetchone()
+    if not user_data:
+        return jsonify({"message": "No such User Exists!"}), 404
 
     if user_data[3] and check_password(user_data[3].encode('utf-8'), password):
         # Checking is Clinician is already a Senior.
@@ -135,6 +137,9 @@ def demote():
     cur.execute("SELECT * FROM clinicians WHERE username = %s", (username,))
     mysql.connection.commit()
     user_data = cur.fetchone()
+    if not user_data:
+        return jsonify({"message": "No such User Exists!"}), 404
+    
 
     if user_data[3] and check_password(user_data[3].encode('utf-8'), password):
         # Checking is Clinician is already a Senior.
