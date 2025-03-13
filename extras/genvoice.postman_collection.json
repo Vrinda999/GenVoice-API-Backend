@@ -16,14 +16,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Dr. Jane Doe\",\r\n    \"username\": \"jane99\",\r\n    \"password\": \"pwjane99\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Dr. Jane Doe\",\r\n    \"username\": \"jane992\",\r\n    \"password\": \"pwjane99\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://127.0.0.1:5000/clinicians/register"
+						"url": "https://genvoice-api-backend.onrender.com/clinicians/register"
 					},
 					"response": []
 				},
@@ -41,7 +41,7 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:5000/clinicians/login"
+						"url": "https://genvoice-api-backend.onrender.com/clinicians/login"
 					},
 					"response": []
 				},
@@ -52,14 +52,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"jane99\",\r\n    \"password\": \"pwjane99\"\r\n}",
+							"raw": "{\r\n    \"username\": \"jane992\",\r\n    \"password\": \"pwjane99\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://127.0.0.1:5000/clinicians/promote"
+						"url": "https://genvoice-api-backend.onrender.com/clinicians/promote"
 					},
 					"response": []
 				},
@@ -70,14 +70,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"jane99\",\r\n    \"password\": \"pwjane99\"\r\n}",
+							"raw": "{\r\n    \"username\": \"jane992\",\r\n    \"password\": \"pwjane99\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://127.0.0.1:5000/clinicians/demote"
+						"url": "https://genvoice-api-backend.onrender.com/clinicians/demote"
 					},
 					"response": []
 				},
@@ -88,7 +88,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg5NDYxMH0.OlvIymOPs0E_kJklkgCGlDxN-e5a0Jy2dh5QEFrT308",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg3NjYzMX0.maPhOQeetvf2EaOhBf9lTsIGhZ4M1sUQ99ZwQrcD9Zk",
 								"type": "text"
 							}
 						],
@@ -101,7 +101,7 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:5000/clinicians/logout"
+						"url": "https://genvoice-api-backend.onrender.com/clinicians/logout"
 					},
 					"response": []
 				}
@@ -120,7 +120,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg5NDYxMH0.OlvIymOPs0E_kJklkgCGlDxN-e5a0Jy2dh5QEFrT308",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg3NjYzMX0.maPhOQeetvf2EaOhBf9lTsIGhZ4M1sUQ99ZwQrcD9Zk",
 								"type": "text"
 							}
 						],
@@ -133,7 +133,7 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:5000/cases/Fetch"
+						"url": "https://genvoice-api-backend.onrender.com/cases/Fetch"
 					},
 					"response": []
 				},
@@ -144,7 +144,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg5NDYxMH0.OlvIymOPs0E_kJklkgCGlDxN-e5a0Jy2dh5QEFrT308",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGluaWNpYW5faWQiOjEsImV4cCI6MTc0MTg3NjYzMX0.maPhOQeetvf2EaOhBf9lTsIGhZ4M1sUQ99ZwQrcD9Zk",
 								"type": "text"
 							}
 						],
@@ -157,7 +157,7 @@
 								}
 							}
 						},
-						"url": "http://127.0.0.1:5000/cases/Add"
+						"url": "https://genvoice-api-backend.onrender.com/cases/Add"
 					},
 					"response": []
 				}
@@ -168,7 +168,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://127.0.0.1:5000/ping"
+				"url": "https://genvoice-api-backend.onrender.com/ping"
 			},
 			"response": []
 		}
